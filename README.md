@@ -1,5 +1,6 @@
 hacer un juego donde hay dos grupos con divs.
 
+```
 ............
 .			.
 .	A		.
@@ -13,9 +14,11 @@ hacer un juego donde hay dos grupos con divs.
 .			.
 .			.
 .............
+```
 
 Cuando le hago click A debería quedar asi:
 
+```
 ............
 .			.
 .			.
@@ -30,3 +33,4 @@ Cuando le hago click A debería quedar asi:
 .			.
 .............
 
+```
