@@ -1,28 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import Grupo from './components/grupo/grupo';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.moverCarta = this.moverCarta.bind(this);
+        this.state = {
+            cartas: [
+                { nombre: "A", grupo: 0 },
+                { nombre: "B", grupo: 0 },
+                { nombre: "C", grupo: 1 },
+            ]
+        };
+    }
+    moverCarta(nombre) {
+        console.log(nombre);
+
+        this.setState((state) => {
+            return {
+                cartas: state.cartas.map((carta)=> {
+                    if (carta.nombre === nombre) {
+                        carta.grupo = 1 - carta.grupo;
+                        return carta;
+                    }
+                    return carta;
+                })
+            }
+        });
+    }
+    render() {
+        return (
+            <div className="App">
+                <Grupo cartas={this.state.cartas} color="red" grupo={0} moverCarta={this.moverCarta} />
+                <Grupo cartas={this.state.cartas} color="blue" grupo={1} moverCarta={this.moverCarta}/>
+            </div>
+        );
+    }
 }
 
 export default App;
